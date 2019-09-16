@@ -24,13 +24,13 @@ arcSegLen=3 # arc segment len in mm
 def draw_circle(r , arc = 360):  # r: radius of, arc: deg arc or partial circle
 
    # calc number of steps based on circumference rather than angle
-    c = 2 * math.pi * r  # circumference of a full circle w/ given radius
-    ca = c * abs(arc / 360)  # circumference of arc, a fraction of circle
+    c = 2 * math.pi * abs(r)  # circumference of a full circle w/ given radius
+    ca = c * (arc / 360)  # circumference of arc, a fraction of circle
     n=int(ca/arcSegLen)  # no of segments, round up to int
-    sa= abs(arc/n)  # segment ang
+    sa= arc/n  # segment ang
     for i in range(n):
         forward(arcSegLen) # draw a segment
-        if arc >0:   # pos angle
+        if r >0:   # pos angle
             left(sa)  # left turn  CCW
         else: # neg angle
             right(sa) # CW
@@ -45,16 +45,15 @@ time.sleep(0.5)
 print(heading())
 print(position())
 
-draw_circle(radius)
-
-# python circle() has a diff approach to neg arc
 #circle(radius, 180)
-#circle(radius, -180)
+#circle(-radius, 180)
+
+#draw_circle(radius)
 
 # figure 8
-#draw_circle(radius, 180)
-#draw_circle(radius, -360)
-#draw_circle(radius, 180)
+draw_circle(radius, 180)
+draw_circle(-radius, 360)
+draw_circle(radius, 180)
 
 #draw_polygon(radius, 100)
 
