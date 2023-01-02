@@ -1,3 +1,7 @@
+This is my classnote archive and modidication to Ken Olson's OSTR.
+All my contributions are in the Mod2023 folder.
+-Charles
+
 Open Source Turtle Robot (OSTR)
 -------------------------------
 
